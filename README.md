@@ -2,7 +2,7 @@
 
 ## Overview
 
-This E-commerce platform provides an API to manage products, inventory, and orders. The application supports dynamic pricing based on inventory quantity and customer demand. The platform allows customers to browse products and place orders.
+This is platform provides an API to manage inventory and orders. The application supports dynamic pricing based on inventory quantity and customer demand. The platform allows customers to browse products and place orders.
 
 ### Key Features:
 - **Inventory Management**: Import inventories from CSV file.
