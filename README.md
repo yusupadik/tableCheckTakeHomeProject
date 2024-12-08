@@ -33,7 +33,7 @@ All the Variable on how many additional, discount percentage, or the demand thre
 - **file**: A CSV file containing product data. The file should have the following columns: NAME, CATEGORY, DEFAULT_PRICE, QTY.
 
 #### Response:
-
+- **Status**: 201 Created
 ```json
 {
   "message": "Inventories imported successfully",
@@ -77,7 +77,7 @@ All the Variable on how many additional, discount percentage, or the demand thre
 - **Description**: Retrieve all Inventories on the platform
 
 #### Response:
-
+- **Status**: 200 Ok
 ```json
 [
   {
@@ -107,7 +107,37 @@ All the Variable on how many additional, discount percentage, or the demand thre
 ]
 ```
 
-### 3. **Create an Order**
+### 3. **Inventory Detail**
+- **URL**: `/api/v1/inventories/:id`
+- **Method**: `GET`
+- **Description**: Retrieve a single product by its ID.
+
+#### Response:
+- **Status**: 200 Ok
+```json
+{
+    "_id": "xxxxxxxxxxxxxxxxxxxx1",
+    "category": "Clothing",
+    "created_at": "2024-12-07T04:30:28.467Z",
+    "default_price": 1800.0,
+    "name": "Product 1",
+    "price": 1600.0,
+    "qty": 4,
+    "updated_at": "2024-12-08T08:05:43.199Z"
+}
+```
+
+#### Errors:
+- **Status**: 404 Not found
+```json
+{
+  "error": [
+    "Inventory not found for"
+  ]
+}
+```
+
+### 4. **Create an Order**
 - **URL**: `/api/v1/orders`
 - **Method**: `POST`
 - **Description**: Creates a new order for the products selected by the customer.
@@ -126,6 +156,49 @@ All the Variable on how many additional, discount percentage, or the demand thre
       "qty": 1,
       "price": 50
     }
+  ]
+}
+```
+
+#### Response:
+```json
+- **Status**: 201 Created
+{
+  "message": "Order created successfully",
+  "orders": [
+    {
+      "_id": "xxxxxxxxxxxxxx1",
+      "created_at": "2024-12-08T08:32:46.176Z",
+      "inventory_id": "yyyyyyyyyyyyyyyyyproduct1",
+      "price": 2205.9,
+      "qty": 2,
+      "updated_at": "2024-12-08T08:32:46.176Z"
+    },
+    {
+      "_id": "xxxxxxxxxxxxxxxxx2",
+      "created_at": "2024-12-08T08:32:46.184Z",
+      "inventory_id": "yyyyyyyyyyyyyyyyyyproduct2",
+      "price": 5492.7,
+      "qty": 3,
+      "updated_at": "2024-12-08T08:32:46.184Z"
+    }
+  ]
+}
+```
+
+#### Errors:
+- **Status**: 422 Unprocessable Content (product params blank)
+```json
+{
+  "error": "No Products selected"
+}
+```
+
+- **Status**: 422 Unprocessable Content (Inventory not found)
+```json
+{
+  "error": [
+    "Inventory not found for xxxx"
   ]
 }
 ```

@@ -1,6 +1,6 @@
 class Api::V1::OrdersController < ApplicationController
   def create
-    if params[:products].nil?
+    if params[:products].blank?
       render json: { error: 'No Products selected' }, status: :unprocessable_entity
       return
     end
