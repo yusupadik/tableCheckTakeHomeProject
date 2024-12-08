@@ -20,8 +20,8 @@ class CompetitorPricingService
       retries += 1
       Rails.logger.error "Attempt #{retries} failed: #{error.message}"
 
-      if retries < MAX_RETRIES
-        Rails.logger.info "Retrying in #{RETRY_DELAY} seconds..."
+      if retries < MAX_RETRIES.to_i
+        Rails.logger.info "Retrying in #{RETRY_DELAY_IN_SECOND} seconds..."
         sleep(RETRY_DELAY_IN_SECOND)
         retry
       else

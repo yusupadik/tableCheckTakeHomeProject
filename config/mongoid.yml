@@ -19,6 +19,7 @@ test:
       hosts:
         - localhost:27017
       options:
-        read:
-          mode: :primary
-        max_pool_size: 1
+        server_selection_timeout: 1
+        user: <%= ENV['MONGO_USERNAME'] %>  # MongoDB root username
+        password: "<%= ENV['MONGO_PASSWORD'] %>"
+        auth_source: <%= ENV['MONGO_AUTH_SOURCE'] %>

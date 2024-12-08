@@ -55,10 +55,8 @@ class Api::V1::InventoriesController < ApplicationController
   private
 
   def set_inventory
-    # Mongoid uses _id internally, Rails automatically maps :id to _id
-    @inventory = Inventory.find_by(id: params[:id])
+    @inventory = Inventory.where(id: params[:id]).first
 
-    # If inventory not found, return an error
     render json: { error: 'Inventory not found' }, status: :not_found unless @inventory
   end
 end

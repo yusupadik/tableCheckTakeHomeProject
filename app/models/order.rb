@@ -8,7 +8,6 @@ class Order
   field :qty, type: Integer
   field :inventory_id, type: BSON::ObjectId
 
-  # Validations
   validates :price, presence: true
   validates :qty, presence: true
   validates :inventory_id, presence: true
