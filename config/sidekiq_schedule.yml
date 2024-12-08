@@ -1,0 +1,4 @@
+update_inventory_price_job:
+  cron: "*/5 * * * *" # Every 5 minutes
+  class: "UpdateInventoryPriceJob"
+  queue: "default"

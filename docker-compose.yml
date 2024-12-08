@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: tablecheck-mongodb
+    ports:
+      - "27017:27017"  # Expose MongoDB on port 27017
+    volumes:
+      - mongodb_data:/data/db  # Persist data in a Docker volume
+    networks:
+      - mongo_network
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root  # MongoDB root username
+      MONGO_INITDB_ROOT_PASSWORD: 1234567  # MongoDB root password
+      MONGO_INITDB_DATABASE: tablecheckhomework
+volumes:
+  mongodb_data:
+    driver: local  # Create a volume to persist MongoDB data
+
+networks:
+  mongo_network:
+    driver: bridge  # Default bridge network

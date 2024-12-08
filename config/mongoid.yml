@@ -1,0 +1,24 @@
+development:
+  # Configure available database clients. (required)
+  clients:
+    # Defines the default client. (required)
+    default:
+      database: <%= ENV['MONGO_DATABASE'] %>
+      hosts:
+        - localhost:27017
+      options:
+        server_selection_timeout: 1
+        user: <%= ENV['MONGO_USERNAME'] %>  # MongoDB root username
+        password: "<%= ENV['MONGO_PASSWORD'] %>"
+        auth_source: <%= ENV['MONGO_AUTH_SOURCE'] %>
+
+test:
+  clients:
+    default:
+      database: table_check_take_home_project_test
+      hosts:
+        - localhost:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
