@@ -81,26 +81,26 @@ All the Variable on how many additional, discount percentage, or the demand thre
 ```json
 [
   {
-    "_id": "6753cf64fb1e85b65d2e9524",
+    "_id": "xxxxxxxxxxxxxxxxxxxx1",
     "category": "Footwear",
     "default_price": 3005.0,
-    "name": "MC Hammer Pants",
+    "name": "Product 1",
     "price": 2704.5,
     "qty": 285
   },
   {
-    "_id": "6753cf64fb1e85b65d2e9525",
+    "_id": "xxxxxxxxxxxxxxxxxxxxxxxx2",
     "category": "Accessories",
     "default_price": 1511.0,
-    "name": "Thriller Jacket",
+    "name": "Product 2",
     "price": 660.25,
     "qty": 231
   },
   {
-    "_id": "6753cf64fb1e85b65d2e9526",
+    "_id": "xxxxxxxxxxxxxxxxxxxxxxxx3",
     "category": "Clothing",
     "default_price": 1800.0,
-    "name": "Cabbage Patch Hat",
+    "name": "Product 3",
     "price": 786.6,
     "qty": 4
   }
@@ -132,7 +132,7 @@ All the Variable on how many additional, discount percentage, or the demand thre
 ```json
 {
   "error": [
-    "Inventory not found for"
+    "Inventory not found"
   ]
 }
 ```
@@ -161,8 +161,8 @@ All the Variable on how many additional, discount percentage, or the demand thre
 ```
 
 #### Response:
-```json
 - **Status**: 201 Created
+```json
 {
   "message": "Order created successfully",
   "orders": [
@@ -202,5 +202,59 @@ All the Variable on how many additional, discount percentage, or the demand thre
   ]
 }
 ```
+
+## Setting Up and Running the Application Locally
+
+To set up and run this application locally, follow these steps:
+
+### Prerequisites:
+- Ruby (version 3 or above)
+- Rails (version 7 or above)
+- Docker ( version 27.3.1 or above)
+- Redis (version 6 or above)
+
+### Steps:
+1. **Clone the repository:**
+```bash
+  git clone git@github.com:yusupadik/tableCheckTakeHomeProject.git
+  cd tableCheckTakeHomeProject
+```
+
+2. **Run Docker Compose:** to create mongodb via docker
+```bash
+  docker compose up
+```
+
+3. **Install Ruby dependencies:**
+```bash
+  bundle install
+```
+
+4. **Setup the .env file**
+
+5. **Set up the database:**
+```bash
+  rails db:create
+```
+
+6. **Start the server:**
+```bash
+  rails s
+```
+
+7. **Run Sidekiq:**
+```bash
+  bundle exec sidekiq
+```
+
+8. **Access the API:** Open your browser or use a tool like Postman to make requests to the API at
+`http://localhost:3000/ping`
+The result will be:
+```json
+{
+  "message": "pong"
+}
+```
+
 
 

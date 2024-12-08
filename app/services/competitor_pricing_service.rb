@@ -22,7 +22,7 @@ class CompetitorPricingService
 
       if retries < MAX_RETRIES.to_i
         Rails.logger.info "Retrying in #{RETRY_DELAY_IN_SECOND} seconds..."
-        sleep(RETRY_DELAY_IN_SECOND)
+        sleep(RETRY_DELAY_IN_SECOND.to_i)
         retry
       else
         Rails.logger.error "All #{MAX_RETRIES} attempts failed. Returning empty result."
