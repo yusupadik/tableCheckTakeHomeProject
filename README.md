@@ -71,3 +71,63 @@ All the Variable on how many additional, discount percentage, or the demand thre
   }
 ```
 
+### 2. **Inventory List**
+- **URL**: `/api/v1/inventories`
+- **Method**: `GET`
+- **Description**: Retrieve all Inventories on the platform
+
+#### Response:
+
+```json
+[
+  {
+    "_id": "6753cf64fb1e85b65d2e9524",
+    "category": "Footwear",
+    "default_price": 3005.0,
+    "name": "MC Hammer Pants",
+    "price": 2704.5,
+    "qty": 285
+  },
+  {
+    "_id": "6753cf64fb1e85b65d2e9525",
+    "category": "Accessories",
+    "default_price": 1511.0,
+    "name": "Thriller Jacket",
+    "price": 660.25,
+    "qty": 231
+  },
+  {
+    "_id": "6753cf64fb1e85b65d2e9526",
+    "category": "Clothing",
+    "default_price": 1800.0,
+    "name": "Cabbage Patch Hat",
+    "price": 786.6,
+    "qty": 4
+  }
+]
+```
+
+### 3. **Create an Order**
+- **URL**: `/api/v1/orders`
+- **Method**: `POST`
+- **Description**: Creates a new order for the products selected by the customer.
+
+#### Request:
+```json
+{
+  "products": [
+    {
+      "name": "Product 1",
+      "qty": 2,
+      "price": 100
+    },
+    {
+      "name": "Product 2",
+      "qty": 1,
+      "price": 50
+    }
+  ]
+}
+```
+
+
