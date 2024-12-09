@@ -18,6 +18,7 @@ Dynamic pricing is a key feature of this platform, which adjusts the price of pr
 - **Low Inventory**: As stock decreases, the price increases proportionally to encourage sales or balance demand.
 - **High Demand**: When the deman high, the price will increases based on the high demand percentage variable.
 - **Competitor Prices**:  Adjust prices based on competitor prices. We pull the competitor prices from service API, then give undercut if the current price is higher than the competitor
+- **Automatic**: The dynamic price process will run automatically using Sidekiq cron, that run every 5 minutes, to update the price, based on the default price, high/low inventory, high/low demand, and competitor prices
 
 ### Dynamic Pricing Variable:
 All the Variable on how many additional, discount percentage, or the demand threshold can change from the `.env` file, see the `env.example`
