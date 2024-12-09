@@ -6,8 +6,8 @@ This is platform provides an API to manage inventory and orders. The application
 
 ### Key Features:
 - **Inventory Management**: Import inventories from CSV file.
-- **Order Management**: Place orders, check order status, and manage order history.
-- **Dynamic Pricing**: Prices may fluctuate based on available inventory and other business rules.
+- **Order**: Place orders.
+- **Dynamic Pricing**: Prices may fluctuate based on available inventory, demand, and competitor price.
 
 ## Dynamic Pricing
 
